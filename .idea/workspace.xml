@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="22202402-8d25-46c5-806b-4a7a85d21fb9" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1a8XA06Y9ikZdDjYQI987vF4sSP" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/log.txt" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="File.Encoding" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\InnoStudy\GameTheory\Assignment 2\src" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Solution">
+    <configuration name="Logger" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.DanielDv99.Logger" />
+      <module name="Assignment 2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.DanielDv99.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.Main" />
+      <module name="Assignment 2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.DanielDv99.Main" />
+      <module name="Assignment 2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Solution" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.DanielDv99.Solution" />
+      <module name="Assignment 2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.DanielDv99.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tournament" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.DanielDv99.Tournament" />
+      <module name="Assignment 2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.DanielDv99.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Solution" />
+        <item itemvalue="Application.Tournament" />
+        <item itemvalue="Application.Logger" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="22202402-8d25-46c5-806b-4a7a85d21fb9" name="Default Changelist" comment="" />
+      <created>1586118046946</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1586118046946</updated>
+      <workItem from="1586118049902" duration="1266000" />
+      <workItem from="1586120119383" duration="3223000" />
+      <workItem from="1586176252818" duration="4245000" />
+      <workItem from="1586184072464" duration="20531000" />
+      <workItem from="1586367138581" duration="11807000" />
+      <workItem from="1586553742824" duration="1219000" />
+      <workItem from="1586610280108" duration="512000" />
+      <workItem from="1586701124022" duration="8200000" />
+      <workItem from="1586783954446" duration="11344000" />
+      <workItem from="1586805977344" duration="1588000" />
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="362" y="93" key="#Project_Structure" timestamp="1586120127497">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="362" y="93" key="#Project_Structure/0.0.1536.864@0.0.1536.864" timestamp="1586120127497" />
+    <state x="575" y="138" key="#com.intellij.ide.util.MemberChooser" timestamp="1586216398821">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="575" y="138" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1586216398821" />
+    <state x="561" y="275" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1586197241184">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="561" y="275" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.864@0.0.1536.864" timestamp="1586197241184" />
+    <state x="550" y="189" key="FileChooserDialogImpl" timestamp="1586369011228">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="550" y="189" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1586369011228" />
+    <state width="1493" height="308" key="GridCell.Tab.0.bottom" timestamp="1586810514823">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="308" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1586810514823" />
+    <state width="1493" height="308" key="GridCell.Tab.0.center" timestamp="1586810514822">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="308" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1586810514822" />
+    <state width="1493" height="308" key="GridCell.Tab.0.left" timestamp="1586810514822">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="308" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1586810514822" />
+    <state width="1493" height="308" key="GridCell.Tab.0.right" timestamp="1586810514822">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="308" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1586810514822" />
+    <state width="1493" height="255" key="GridCell.Tab.1.bottom" timestamp="1586805962410">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="255" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1586805962410" />
+    <state width="1493" height="255" key="GridCell.Tab.1.center" timestamp="1586805962410">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="255" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1586805962410" />
+    <state width="1493" height="255" key="GridCell.Tab.1.left" timestamp="1586805962410">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="255" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1586805962410" />
+    <state width="1493" height="255" key="GridCell.Tab.1.right" timestamp="1586805962410">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="255" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1586805962410" />
+    <state x="152" y="144" key="SettingsEditor" timestamp="1586370087339">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="152" y="144" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1586370087339" />
+    <state x="612" y="144" key="com.intellij.ide.util.TipDialog" timestamp="1586805977140">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="612" y="144" key="com.intellij.ide.util.TipDialog/0.0.1536.864@0.0.1536.864" timestamp="1586805977140" />
+    <state x="498" y="323" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1586201984503">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="498" y="323" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1536.864@0.0.1536.864" timestamp="1586201984503" />
+    <state x="409" y="49" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1586214779591">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="409" y="49" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.864@0.0.1536.864" timestamp="1586214779591" />
+    <state x="350" y="89" key="editAsTableFormatDialogDimension" timestamp="1586368535520">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="350" y="89" key="editAsTableFormatDialogDimension/0.0.1536.864@0.0.1536.864" timestamp="1586368535520" />
+    <state x="431" y="182" width="672" height="678" key="search.everywhere.popup" timestamp="1586797579894">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="431" y="182" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1586797579894" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/com/DanielDv99/Logger.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/com/DanielDv99/Tournament.java</url>
+          <line>244</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
