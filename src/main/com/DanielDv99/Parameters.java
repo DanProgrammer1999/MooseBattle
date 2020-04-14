@@ -1,10 +1,10 @@
 package com.DanielDv99;
 
 class Parameters {
-    static final int TOURNAMENT_ROUNDS = 15;
+    static final int TOURNAMENT_ROUNDS = 900;
 
     static final boolean IS_TESTING = true;
-    static final long TESTING_SEED = 42;
+    static final long TESTING_SEED = 2;
 
     static final boolean LOG_ENABLED = true;
     static final boolean FILE_LOGGING = true;

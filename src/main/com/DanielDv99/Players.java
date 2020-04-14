@@ -10,6 +10,7 @@ interface Player {
 
 class RandomPlayer implements Player {
     private Random generator;
+
     public RandomPlayer() {
         reset();
     }
@@ -29,15 +30,16 @@ class RandomPlayer implements Player {
 }
 
 class GreedyPlayer implements Player {
-    public void reset(){ }
+    public void reset() {
+    }
 
     @Override
     public int move(int opponentLastMove, int xA, int xB, int xC) {
-        if(xA >= xB && xA >= xC){
+        if (xA >= xB && xA >= xC) {
             return 1;
         }
 
-        else if(xB >= xA && xB >= xC){
+        else if (xB >= xA && xB >= xC) {
             return 2;
         }
         else {
@@ -47,7 +49,8 @@ class GreedyPlayer implements Player {
 }
 
 class CopycatPlayer implements Player {
-    public void reset(){}
+    public void reset() {
+    }
 
     @Override
     public int move(int opponentLastMove, int xA, int xB, int xC) {
@@ -56,68 +59,43 @@ class CopycatPlayer implements Player {
 }
 
 class CarefulPlayer implements Player {
-
-    private static int cooldownPeriod = 1;
     private static GreedyPlayer greedy = new GreedyPlayer();
-    private int myLastSafeMove;
     private int myLastMove;
-    private int currentCooldown;
 
-    public CarefulPlayer(){
-        initialize();
+    public CarefulPlayer() {
+        myLastMove = 1;
     }
 
-    public void reset(){
-        initialize();
-    }
-
-    private void initialize(){
-        myLastSafeMove = 1;
-        myLastMove = 0;
-
-        currentCooldown = 0;
+    public void reset() {
+        myLastMove = 1;
     }
 
     @Override
-    public int move(int opponentLastMove, int xA, int xB, int xC){
-        var fieldScores = new int[]{xA, xB, xC};
-        int move = myLastSafeMove;
+    public int move(int opponentLastMove, int xA, int xB, int xC) {
+        var fieldScores = new int[] {xA, xB, xC};
+        int move;
+        int myFieldScore = fieldScores[myLastMove - 1];
 
-        if(opponentLastMove == 0){
-            // First move is always A
-            move = 1;
-        }
-        else if(myLastMove != opponentLastMove){
-            myLastSafeMove = myLastMove;
-            var safeScore = fieldScores[myLastSafeMove - 1];
-
-            // If you are "hungry" (cooldown passed) and the safe field doesn't give any payoff
-            if(currentCooldown == 0 && safeScore == 0){
-                move = greedy.move(opponentLastMove, xA, xB, xC);
-            }
-            else {
-                move = myLastSafeMove;
-                currentCooldown--;
-            }
+        if(myFieldScore == 0){
+            move = greedy.move(opponentLastMove, xA, xB, xC);
         }
         else{
-            // last move there was a fight
-            currentCooldown = cooldownPeriod;
-            move = myLastSafeMove;
+            move = myLastMove;
         }
+
         myLastMove = move;
         return move;
     }
 }
 
-class SequentialPlayer implements Player{
+class SequentialPlayer implements Player {
     private int previousMove;
 
-    public SequentialPlayer(){
+    public SequentialPlayer() {
         reset();
     }
 
-    public void reset(){
+    public void reset() {
         this.previousMove = 0;
     }
 
@@ -134,32 +112,103 @@ class SequentialPlayer implements Player{
     }
 }
 
-class PreviousFieldPlayer implements Player{
+class PreviousFieldPlayer implements Player {
     private int previousMove;
 
-    public void reset(){ }
+    public PreviousFieldPlayer() {
+        this.previousMove = 0;
+    }
+
+    public void reset() {
+        previousMove = 0;
+    }
 
     @Override
     public int move(int opponentLastMove, int xA, int xB, int xC) {
         var myMove = opponentLastMove - 1;
-        if(myMove == 0){
+        if (myMove == 0) {
             myMove = 3;
         }
 
+        if (previousMove == myMove) {
+            myMove -= 1;
+            if (myMove == 0) {
+                myMove = 3;
+            }
+        }
+
+        previousMove = myMove;
         return myMove;
     }
 }
 
-class NextFieldPlayer implements Player{
+class NextFieldPlayer implements Player {
     private int previousMove;
 
-    public void reset(){ }
+    public NextFieldPlayer() {
+        this.previousMove = 0;
+    }
+
+    public void reset() {
+        previousMove = 0;
+    }
 
     @Override
     public int move(int opponentLastMove, int xA, int xB, int xC) {
-        var myMove = opponentLastMove - 1;
-        if(myMove == 0){
-            myMove = 3;
+        var myMove = opponentLastMove + 1;
+        if (myMove == 4) {
+            myMove = 1;
+        }
+
+        if (myMove == previousMove) {
+            myMove += 1;
+
+            if (myMove == 4) {
+                myMove = 1;
+            }
+        }
+
+        this.previousMove = myMove;
+        return myMove;
+    }
+}
+
+class RandomDirectionMovePlayer implements Player {
+    private Random generator;
+
+    public RandomDirectionMovePlayer(){
+        reset();
+    }
+
+    @Override
+    public void reset() {
+        if(Parameters.IS_TESTING){
+            this.generator = new Random(Parameters.TESTING_SEED);
+        }
+        else {
+            this.generator = new Random();
+        }
+    }
+
+    @Override
+    public int move(int opponentLastMove, int xA, int xB, int xC) {
+        int directionChoice = generator.nextInt(2);
+        int myMove;
+
+        // previous
+        if(directionChoice == 0){
+            myMove = opponentLastMove - 1;
+            if(myMove == 0){
+                myMove = 3;
+            }
+        }
+        // next
+        else {
+            myMove = opponentLastMove + 1;
+            if(myMove == 4){
+                myMove = 1;
+            }
+
         }
 
         return myMove;

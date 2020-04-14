@@ -29,13 +29,19 @@ class Battle{
 
         var names = new String[this.players.length];
         var scores = new String[this.players.length];
+        var wins = new String[this.players.length];
         for(int i = 0; i < this.players.length; i++){
             names[i] = this.players[i].getName();
             scores[i] = String.format("%.2f", this.players[i].getScore());
+            wins[i] = Integer.toString(this.players[i].getWins());
         }
 
-        var table = Logger.asTable(names, scores);
-        Logger.log("Final results: " + System.lineSeparator() + table);
+        var scoreTable = Logger.asTable(names, scores);
+        Logger.log("Final scores:" + System.lineSeparator() + scoreTable);
+
+        var winsTable = Logger.asTable(names, wins);
+
+        Logger.log(System.lineSeparator() + "Number of won tournaments:" + System.lineSeparator() + winsTable);
     }
 
     private void playNext(){
@@ -109,22 +115,33 @@ public class Tournament {
     public void playTournament() {
         var nRounds = Parameters.TOURNAMENT_ROUNDS;
         var tournamentResults = new RoundResults[nRounds];
+        double p1Score = 0, p2Score = 0;
 
         Logger.printSeparator();
 
         for (int i = 0; i < nRounds; i++) {
-            tournamentResults[i] = playRound(i + 1);
+            var tournamentResult = playRound(i + 1);
+            p1Score += tournamentResult.p1Score;
+            p2Score += tournamentResult.p2Score;
+            tournamentResults[i] = tournamentResult;
+        }
+
+        if(p1Score > p2Score){
+            player1.addWin();
+        }
+        else if(p2Score > p1Score){
+            player2.addWin();
         }
 
         var names = new String[] {player1.getName(), player2.getName()};
         var scores = new String[] {
-                String.format("%.2f", player1.getScore()),
-                String.format("%.2f", player2.getScore())
+                String.format("%.2f", p1Score),
+                String.format("%.2f", p2Score)
         };
         var scoresTable = Logger.asTable(names, scores);
 
         var tournamentReport = String.format("Tournament %s finished. " +
-                        "%%nNew scores: %n%s%n",
+                        "%nPlayer tournament scores: %n%s%n",
                 this.tournamentID, scoresTable);
         Logger.log(tournamentReport);
 
@@ -155,14 +172,6 @@ public class Tournament {
         Logger.log("Tournament summary:\n" + reportTable);
 
         Logger.printSeparator();
-    }
-
-    public GamePlayer getPlayer1() {
-        return player1;
-    }
-
-    public GamePlayer getPlayer2() {
-        return player2;
     }
 
     public String getTournamentID() {
@@ -196,6 +205,7 @@ class GamePlayer implements Player {
     private Player player;
     private int previousMove;
     private double score;
+    private int wins;
     private String name;
 
     public GamePlayer(Player player, String name) {
@@ -207,11 +217,13 @@ class GamePlayer implements Player {
         this.player = player;
         this.score = 0;
         this.previousMove = 0;
+        this.wins = 0;
     }
 
     public void reset() {
         this.score = 0;
         this.previousMove = 0;
+        this.wins = 0;
         player.reset();
     }
 
@@ -235,6 +247,14 @@ class GamePlayer implements Player {
 
     public String getName() {
         return this.name;
+    }
+
+    public void addWin(){
+        this.wins++;
+    }
+
+    public int getWins() {
+        return wins;
     }
 
     public static double[] calculateScores(int p1Move, int p2Move, Environment env) {

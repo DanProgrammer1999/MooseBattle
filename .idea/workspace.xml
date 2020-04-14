@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="22202402-8d25-46c5-806b-4a7a85d21fb9" name="Default Changelist" comment="" />
+    <list default="true" id="22202402-8d25-46c5-806b-4a7a85d21fb9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment 2/com/DanielDv99/CarefulPlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment 2/com/DanielDv99/CarefulPlayer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment 2/com/DanielDv99/CopycatPlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment 2/com/DanielDv99/CopycatPlayer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment 2/com/DanielDv99/GamePlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment 2/com/DanielDv99/GamePlayer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment 2/com/DanielDv99/GreedyPlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment 2/com/DanielDv99/GreedyPlayer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment 2/com/DanielDv99/Parameters.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment 2/com/DanielDv99/Parameters.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment 2/com/DanielDv99/PreviousFieldPlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment 2/com/DanielDv99/PreviousFieldPlayer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment 2/com/DanielDv99/RandomPlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment 2/com/DanielDv99/RandomPlayer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment 2/com/DanielDv99/SequentialPlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment 2/com/DanielDv99/SequentialPlayer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment 2/com/DanielDv99/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment 2/com/DanielDv99/Solution.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment 2/com/DanielDv99/Tournament$RoundResults.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment 2/com/DanielDv99/Tournament$RoundResults.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment 2/com/DanielDv99/Tournament.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment 2/com/DanielDv99/Tournament.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/com/DanielDv99/Parameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/DanielDv99/Parameters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/com/DanielDv99/Players.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/DanielDv99/Players.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/com/DanielDv99/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/DanielDv99/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/com/DanielDv99/Tournament.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/DanielDv99/Tournament.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/com/DanielDv99/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/DanielDv99/Utils.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,7 +34,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1a8XA06Y9ikZdDjYQI987vF4sSP" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -26,6 +50,7 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/log.txt" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -123,7 +148,8 @@
       <workItem from="1586610280108" duration="512000" />
       <workItem from="1586701124022" duration="8200000" />
       <workItem from="1586783954446" duration="11344000" />
-      <workItem from="1586805977344" duration="1588000" />
+      <workItem from="1586805977344" duration="5726000" />
+      <workItem from="1586858411134" duration="3267000" />
     </task>
     <servers />
   </component>
@@ -144,22 +170,22 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="550" y="189" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1586369011228" />
-    <state width="1493" height="308" key="GridCell.Tab.0.bottom" timestamp="1586810514823">
+    <state width="1493" height="334" key="GridCell.Tab.0.bottom" timestamp="1586861839603">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="308" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1586810514823" />
-    <state width="1493" height="308" key="GridCell.Tab.0.center" timestamp="1586810514822">
+    <state width="1493" height="334" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1586861839603" />
+    <state width="1493" height="334" key="GridCell.Tab.0.center" timestamp="1586861839603">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="308" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1586810514822" />
-    <state width="1493" height="308" key="GridCell.Tab.0.left" timestamp="1586810514822">
+    <state width="1493" height="334" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1586861839603" />
+    <state width="1493" height="334" key="GridCell.Tab.0.left" timestamp="1586861839603">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="308" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1586810514822" />
-    <state width="1493" height="308" key="GridCell.Tab.0.right" timestamp="1586810514822">
+    <state width="1493" height="334" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1586861839603" />
+    <state width="1493" height="334" key="GridCell.Tab.0.right" timestamp="1586861839603">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="308" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1586810514822" />
+    <state width="1493" height="334" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1586861839603" />
     <state width="1493" height="255" key="GridCell.Tab.1.bottom" timestamp="1586805962410">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -180,10 +206,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="152" y="144" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1586370087339" />
-    <state x="612" y="144" key="com.intellij.ide.util.TipDialog" timestamp="1586805977140">
+    <state x="612" y="144" key="com.intellij.ide.util.TipDialog" timestamp="1586858414322">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="612" y="144" key="com.intellij.ide.util.TipDialog/0.0.1536.864@0.0.1536.864" timestamp="1586805977140" />
+    <state x="612" y="144" key="com.intellij.ide.util.TipDialog/0.0.1536.864@0.0.1536.864" timestamp="1586858414322" />
     <state x="498" y="323" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1586201984503">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -208,11 +234,6 @@
           <url>file://$PROJECT_DIR$/src/main/com/DanielDv99/Logger.java</url>
           <line>39</line>
           <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/com/DanielDv99/Tournament.java</url>
-          <line>244</line>
-          <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
