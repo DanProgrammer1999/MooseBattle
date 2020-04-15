@@ -2,20 +2,25 @@ package com.DanielDv99;
 
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Random;
 
-class Battle{
-    private Queue<Tournament> tournaments;
+class Tournament {
+    private Queue<Round> rounds;
     private GamePlayer[] players;
 
-    public Battle(GamePlayer ... players){
+    public Tournament(GamePlayer ... players){
         this.players = players;
 
-        tournaments = new LinkedList<>();
+        rounds = new LinkedList<>();
         for(int i = 0; i < players.length; i++){
-            for(int j = i + 1; j < players.length; j++){
-                assert i < j;
-                tournaments.add(new Tournament(players[i], players[j]));
+            for(int j = i; j < players.length; j++){
+                if(i == j){
+                    var p1 = players[i];
+                    var p2 = p1.getNewCopy();
+                    rounds.add(new Round(p1, p2));
+                }
+                else {
+                    rounds.add(new Round(players[i], players[j]));
+                }
             }
         }
     }
@@ -23,7 +28,7 @@ class Battle{
     public void playAll(){
         Logger.log("LET THE FIGHT BEGIN!");
         Logger.printSeparator();
-        while(!this.tournaments.isEmpty()){
+        while(!this.rounds.isEmpty()){
             this.playNext();
         }
 
@@ -41,31 +46,27 @@ class Battle{
 
         var winsTable = Logger.asTable(names, wins);
 
-        Logger.log(System.lineSeparator() + "Number of won tournaments:" + System.lineSeparator() + winsTable);
+        Logger.log(System.lineSeparator() + "Number of won rounds:" + System.lineSeparator() + winsTable);
     }
 
     private void playNext(){
-        if(this.tournaments.isEmpty()){
+        if(this.rounds.isEmpty()){
             return;
         }
 
-        var nextGame = this.tournaments.remove();
-        nextGame.playTournament();
+        var nextGame = this.rounds.remove();
+        nextGame.playRound();
     }
 }
 
-public class Tournament {
-    private String tournamentID;
+public class Round {
+    private String roundID;
 
     private GamePlayer player1;
     private GamePlayer player2;
     private Environment environment;
 
-    public Tournament(Player p1, String p1Name, Player p2, String p2Name) {
-        initialize(new GamePlayer(p1, p1Name), new GamePlayer(p2, p2Name));
-    }
-
-    public Tournament(GamePlayer player1, GamePlayer player2){
+    public Round(GamePlayer player1, GamePlayer player2){
         initialize(player1, player2);
     }
 
@@ -74,16 +75,13 @@ public class Tournament {
         this.player2 = p2;
         this.environment = new Environment();
 
-        this.tournamentID = player1.getName() + " vs. " + player2.getName();
+        this.roundID = player1.getName() + " vs. " + player2.getName();
     }
 
-    private RoundResults playRound(int roundNumber) {
-
+    private MoveResults nextMove() {
         var xA = environment.getFieldValue(1);
         var xB = environment.getFieldValue(2);
         var xC = environment.getFieldValue(3);
-
-//        Logger.log("Round " + roundNumber + ":");
 
         var p1LastMove = player1.getPreviousMove();
         var p2LastMove = player2.getPreviousMove();
@@ -94,36 +92,27 @@ public class Tournament {
         var scores = GamePlayer.calculateScores(p1Move, p2Move, this.environment);
         double p1Score = scores[0], p2Score = scores[1];
 
-//        var p1Name = this.player1.getName();
-//        var p2Name = this.player2.getName();
-//        var nameLength = Math.max(p1Name.length(), p2Name.length());
-//
-//        var format = " %-" + nameLength + "s -> %s -> %.2f";
-//        Logger.log(String.format(format, p1Name, Logger.moveToString(p1Move), p1Score));
-//        Logger.log(String.format(format, p2Name, Logger.moveToString(p2Move), p2Score));
-
         this.player1.updateScore(p1Score);
         this.player2.updateScore(p2Score);
 
         this.environment.updateFields(p1Move, p2Move);
 
-//        Logger.log(String.format("New field scores: %n%s%n", environment));
-
-        return new RoundResults(p1Move, p2Move, p1Score, p2Score, environment.clone());
+        return new MoveResults(p1Move, p2Move, p1Score, p2Score, environment.clone());
     }
 
-    public void playTournament() {
-        var nRounds = Parameters.TOURNAMENT_ROUNDS;
-        var tournamentResults = new RoundResults[nRounds];
+    public void playRound() {
+        var nRounds = Parameters.MOVES_PER_ROUND;
+        var roundResults = new MoveResults[nRounds];
         double p1Score = 0, p2Score = 0;
 
-        Logger.printSeparator();
+        this.player1.reset();
+        this.player2.reset();
 
         for (int i = 0; i < nRounds; i++) {
-            var tournamentResult = playRound(i + 1);
+            var tournamentResult = nextMove();
             p1Score += tournamentResult.p1Score;
             p2Score += tournamentResult.p2Score;
-            tournamentResults[i] = tournamentResult;
+            roundResults[i] = tournamentResult;
         }
 
         if(p1Score > p2Score){
@@ -140,13 +129,14 @@ public class Tournament {
         };
         var scoresTable = Logger.asTable(names, scores);
 
-        var tournamentReport = String.format("Tournament %s finished. " +
-                        "%nPlayer tournament scores: %n%s%n",
-                this.tournamentID, scoresTable);
-        Logger.log(tournamentReport);
+        var roundReport = String.format("Round %s finished. " +
+                        "%nPlayer round scores: %n%s%n",
+                this.roundID, scoresTable);
+        Logger.printSeparator();
+        Logger.log(roundReport);
 
         // 2 players (moves) + 3 fields values
-        var results = new String[tournamentResults.length + 1][5];
+        var results = new String[roundResults.length + 1][5];
 
         results[0] = new String[] {
                 player1.getName(),
@@ -156,8 +146,8 @@ public class Tournament {
                 Logger.moveToString(3)
         };
 
-        for (int i = 0; i < tournamentResults.length; i++) {
-            var currResults = tournamentResults[i];
+        for (int i = 0; i < roundResults.length; i++) {
+            var currResults = roundResults[i];
 
             results[i + 1] = new String[]{
                     String.format("%s/%.2f pts", Logger.moveToString(currResults.p1Move), currResults.p1Score),
@@ -169,16 +159,12 @@ public class Tournament {
         }
 
         var reportTable = Logger.asTable(results);
-        Logger.log("Tournament summary:\n" + reportTable);
 
+        Logger.log("Tournament summary:\n" + reportTable);
         Logger.printSeparator();
     }
 
-    public String getTournamentID() {
-        return tournamentID;
-    }
-
-    private static class RoundResults {
+    private static class MoveResults {
         private int p1Move;
         private double p1Score;
 
@@ -187,7 +173,7 @@ public class Tournament {
 
         private Environment environment;
 
-        RoundResults(int p1Move, int p2Move, double p1Score, double p2Score, Environment env) {
+        MoveResults(int p1Move, int p2Move, double p1Score, double p2Score, Environment env) {
             this.p1Move = p1Move;
             this.p2Move = p2Move;
 
@@ -221,10 +207,8 @@ class GamePlayer implements Player {
     }
 
     public void reset() {
-        this.score = 0;
         this.previousMove = 0;
-        this.wins = 0;
-        player.reset();
+        this.player.reset();
     }
 
     @Override
@@ -257,13 +241,34 @@ class GamePlayer implements Player {
         return wins;
     }
 
+    /**
+     * Get a fresh copy of this player.
+     * Useful in rounds against themselves
+     * @return a new instance with current player
+     */
+    public GamePlayer getNewCopy(){
+        var res = new GamePlayer(this.player, this.name);
+        res.reset();
+
+        return res;
+    }
+
     public static double[] calculateScores(int p1Move, int p2Move, Environment env) {
         if (p1Move == p2Move) {
             return new double[] {0, 0};
         }
-        var p1Score = Utils.calcPlayerScore(env.getFieldValue(p1Move));
-        var p2Score = Utils.calcPlayerScore(env.getFieldValue(p2Move));
+        var p1Score = calcPlayerScore(env.getFieldValue(p1Move));
+        var p2Score = calcPlayerScore(env.getFieldValue(p2Move));
 
         return new double[] {p1Score, p2Score};
+    }
+
+    public static double f(int x) {
+        double exponent = Math.exp(x);
+        return 10 * exponent / (1 + exponent);
+    }
+
+    public static double calcPlayerScore(int fieldScore) {
+        return f(fieldScore) - f(0);
     }
 }

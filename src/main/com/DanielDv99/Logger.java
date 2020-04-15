@@ -33,18 +33,18 @@ class Logger {
         // Assume that ALL rows are of equal length
         var widths = new int[rows[0].length];
 
-        for (int row = 0; row < rows.length; row++) {
-            for (int col = 0; col < rows[row].length; col++) {
-                widths[col] = Math.max(widths[col], rows[row][col].length());
+        for (String[] strings : rows) {
+            for (int col = 0; col < strings.length; col++) {
+                widths[col] = Math.max(widths[col], strings[col].length());
             }
         }
 
         var res = new StringBuilder();
 
-        for (int i = 0; i < rows.length; i++) {
+        for (String[] row : rows) {
             res.append("|");
-            for (int j = 0; j < rows[i].length; j++) {
-                res.append(String.format(" %-" + widths[j] + "s", rows[i][j])).append(" |");
+            for (int j = 0; j < row.length; j++) {
+                res.append(String.format(" %-" + widths[j] + "s", row[j])).append(" |");
             }
             res.append("\n");
         }

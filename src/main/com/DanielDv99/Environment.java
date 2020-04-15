@@ -19,10 +19,6 @@ class Environment {
         }
     }
 
-    public Field[] getFields() {
-        return fields;
-    }
-
     public Field getFieldByIndex(int index) {
         // decrement index because fields indexing starts with 1, as per task description
         return fields[index - 1];

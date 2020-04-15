@@ -3,7 +3,7 @@ package com.DanielDv99;
 import java.util.Random;
 
 interface Player {
-    public void reset();
+    void reset();
 
     int move(int opponentLastMove, int xA, int xB, int xC);
 }
@@ -54,15 +54,24 @@ class CopycatPlayer implements Player {
 
     @Override
     public int move(int opponentLastMove, int xA, int xB, int xC) {
+        if(opponentLastMove == 0){
+            var rand = new Random();
+            if(Parameters.IS_TESTING){
+                rand.setSeed(Parameters.TESTING_SEED);
+            }
+
+            return rand.nextInt(3) + 1;
+        }
+
         return opponentLastMove;
     }
 }
 
-class CarefulPlayer implements Player {
+class LingeringPlayer implements Player {
     private static GreedyPlayer greedy = new GreedyPlayer();
     private int myLastMove;
 
-    public CarefulPlayer() {
+    public LingeringPlayer() {
         myLastMove = 1;
     }
 
@@ -113,63 +122,44 @@ class SequentialPlayer implements Player {
 }
 
 class PreviousFieldPlayer implements Player {
-    private int previousMove;
+    private int myLastMove;
+    private Random generator;
 
     public PreviousFieldPlayer() {
-        this.previousMove = 0;
+        reset();
     }
 
     public void reset() {
-        previousMove = 0;
+        myLastMove = 0;
+        this.generator = new Random();
+        if(Parameters.IS_TESTING){
+            this.generator.setSeed(Parameters.TESTING_SEED);
+        }
     }
 
     @Override
     public int move(int opponentLastMove, int xA, int xB, int xC) {
-        var myMove = opponentLastMove - 1;
-        if (myMove == 0) {
-            myMove = 3;
+        var myMove = getPreviousMove(opponentLastMove);
+        if(myMove == myLastMove){
+            myMove = getPreviousMove(myMove);
         }
 
-        if (previousMove == myMove) {
-            myMove -= 1;
-            if (myMove == 0) {
-                myMove = 3;
-            }
-        }
+        myLastMove = myMove;
 
-        previousMove = myMove;
         return myMove;
     }
-}
 
-class NextFieldPlayer implements Player {
-    private int previousMove;
-
-    public NextFieldPlayer() {
-        this.previousMove = 0;
-    }
-
-    public void reset() {
-        previousMove = 0;
-    }
-
-    @Override
-    public int move(int opponentLastMove, int xA, int xB, int xC) {
-        var myMove = opponentLastMove + 1;
-        if (myMove == 4) {
-            myMove = 1;
+    private int getPreviousMove(int move){
+        var nextMove = move - 1;
+        if(nextMove == -1){
+            // first move
+            nextMove = generator.nextInt(3) + 1;
+        }
+        else if(nextMove == 0){
+            nextMove = 3;
         }
 
-        if (myMove == previousMove) {
-            myMove += 1;
-
-            if (myMove == 4) {
-                myMove = 1;
-            }
-        }
-
-        this.previousMove = myMove;
-        return myMove;
+        return nextMove;
     }
 }
 
@@ -198,7 +188,7 @@ class RandomDirectionMovePlayer implements Player {
         // previous
         if(directionChoice == 0){
             myMove = opponentLastMove - 1;
-            if(myMove == 0){
+            if(myMove <= 0){
                 myMove = 3;
             }
         }
